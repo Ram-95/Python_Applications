@@ -34,20 +34,4 @@ my_list = ['https://www.flipkart.com/sherlock-holmes-complete-novels-stories-vol
 
 for i in my_list:
     flipkart_price(i)
-
-
-'''
-    url = 'https://www.flipkart.com/adidas-adiray-m-running-shoes-men/p/itmf7g8fxnxydsuc?pid=SHOF7G8FYPMJTE45&lid=LSTSHOF7G8FYPMJTE458RA8CT&marketplace=FLIPKART&spotlightTagId=TrendingId_osp%2Fcil&srno=b_1_1&otracker=hp_omu_Deals%2Bof%2Bthe%2BDay_1_ISKSFOA9MJUY_0&fm=neo%2Fmerchandising&iid=633f9421-e711-4aab-8d4b-900ac8af91f8.SHOF7G8FYPMJTE45.SEARCH&ppt=StoreBrowse&ppn=Store&ssid=kkwtb7mn5c0000001552810060372'
-
-    source = urllib.request.urlopen(url).read()
-    soup = bs.BeautifulSoup(source, 'lxml')
-
-    getting the name of item
-    item_name = soup.find('p').text
-
-    getting the price
-    price = soup.find('div', class_ = '_1vC4OE _3qQ9m1').text
-
-    print("Current price of \"{}\" is: Rs. {}/-".format(item_name, price))
-
-'''
+  
