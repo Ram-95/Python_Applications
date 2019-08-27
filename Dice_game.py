@@ -1,6 +1,6 @@
 # Dice Game between 2 Players
 # The winner will be the first player to score a 36.
-# To do -- Extend this to multiple players
+# Follow Up -- Extend this to multiple players
 
 from random import randint
 import time
@@ -10,13 +10,18 @@ player1 = input('Enter the 1st player name: ')
 player2 = input('Enter the 2nd player name: ')
 print('{} -> 1st Player\n{} -> 2nd Player'.format(player1, player2))
 
-chance = 0      #this is to choose the next player 0 - first player 1- second player
-(tries,tries1) = (0,0)      #tries - 1st player  tries1 - 2nd player
+#this is to choose the next player 0 - first player 1- second player
+chance = 0
+#tries - 1st player  tries1 - 2nd player
+(tries,tries1) = (0,0)
+#Total Scores - total --> 1st player and total1 --> 2nd Player
 (total, total1) = (0,0)
 max_score = 36
 
-while(1):        # Iterate until a player is won
-    while(chance == 0):     #1st player chance
+# Iterate until a player is won
+while(1):
+    #1st player chance --> chance == 0
+    while(chance == 0):     
         print('\n')
         print('{}(1st Player\'s) Chance.. '.format(player1))
         print('-----------------------------------------------')
@@ -29,14 +34,16 @@ while(1):        # Iterate until a player is won
         else:
             print('\nINCORRECT KEY PRESSED.PRESS 1 TO ROLL DICE.')
             continue
-        chance = 1      #giving chance to 2nd player
-
+        #Since 1st playere turn is over, Giving chance to 2nd player
+        chance = 1      
+        #Checking if the total score of the players exceeded max_score
         if total >= max_score:
             print('\n\n******************* GAME OVER ********************\n')
             print('\n{}(Player1) Won the Game in {} tries. Congratulations!!!'.format(player1, tries))
             sys.exit()
 
-    while(chance == 1):     #2nd player chance
+    #2nd player chance
+    while(chance == 1):     
         print('\n')
         print('{}(2nd Player\'s) Chance.. '.format(player2))
         print('*************************************************')
@@ -49,9 +56,10 @@ while(1):        # Iterate until a player is won
         else:
             print('\nINCORRECT KEY PRESSED.PRESS 1 TO ROLL DICE.')
             continue
-        chance = 0      #giving chance to 1st player
+        #Since 2nd player turn is over, Giving chance to 1st player
+        chance = 0      
 
         if total1 >= max_score:
-            print('\n\n******************* GAME OVER ********************\n')
+            print('\n\n******************* GAME OVER ********************')
             print('\n{}(Player1) Won the Game in {} tries. Congratulations!!!'.format(player2, tries1))
             sys.exit()
