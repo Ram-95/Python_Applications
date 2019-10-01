@@ -56,12 +56,10 @@ def bulk_file_rename(path):
     if choice in ('y', 'Y'):
         file_list_new = os.listdir()
         file_list_new = [x for x in file_list_new if os.path.isfile(x) == True]
-        dir_list_new = [x for x in file_list_new if os.path.isdir(x) == True]
+        
         for i in range(len(file_list_new)):
             os.rename(file_list_new[i], file_list[i])
 
-        for i in range(len(dir_list_new)):
-            os.rename(dir_list_new[i], dir_list[i])
 
     return '*********** File Renaming Completed.******************'
 
