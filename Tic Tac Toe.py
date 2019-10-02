@@ -41,13 +41,17 @@ def winner_check(board, player):
     
    
 
-def tic_tac_toe(board):
+def tic_tac_toe_2_players(board):
     #Visited array to mark as visited
     turns = 9
+    win_flag = 0
     visited = [x for x in range(turns)]
     fp = 'X'
     sp = 'O'
     d = {0 :[0,0], 1: [0,1], 2: [0,2], 3: [1,0], 4: [1,1], 5: [1,2], 6: [2,0], 7: [2,1], 8: [2,2]}
+
+    chances = 0
+
     while True:
         print('------------------------------ First Player Turn --------------------------------')
         print(visited)
@@ -56,11 +60,15 @@ def tic_tac_toe(board):
         visited.remove(ch)
         print('\n')
         print_board(board)
+        chances += 1
 
         if winner_check(board, fp):
             print('First Player Won the Game.')
+            win_flag = 1
+            return '=========================== Game Over! ============================'
+            
+        if chances >= 9:
             break
-        
         
     
         print('****************************** Second Player Turn *********************************')
@@ -70,13 +78,18 @@ def tic_tac_toe(board):
         visited.remove(ch1)
         print('\n')
         print_board(board)
+        chances += 1
 
         if winner_check(board, sp):
             print('Second Player Won the Game.')
-            break
+            win_flag = 1
+            return '=========================== Game Over! ============================'
+            
 
-    return '=========================== Game Over! ============================'       
-        
+        if chances >= 9:
+            break
+        print('Chances: {}'.format(chances))
+    return '++++++++++++ Draw Game!!! +++++++++++++++++' 
         
         
     
@@ -84,7 +97,7 @@ def tic_tac_toe(board):
 
 board = [['_' for i in range(3)] for j in range(3)]
 print_board(board)
-print(tic_tac_toe(board))
+print(tic_tac_toe_2_players(board))
 
 
 
