@@ -194,27 +194,3 @@ if int(option) == 2:
 elif int(option) == 1:
     print(tic_tac_toe_comp_player(board))
     
-
-
-
-
-
-
-
-
-'''
--- First player is 'X' and the other is 'O'.
--- User Should give a number [0-8] that denotes the cell number.
--- Maintain a visited array [0-8] and mark it as visited, for all the numbers that the players had chosen earlier
-   such that already existing 'O' and 'X' are not altered.
-
-
-
-1. Two Modes --> Computer vs Player and Player1 vs player2
-2. For Computer, use random module and place either 'O' or 'X' at a random AVAILABLE position.
-3. For Two Players, make turns and take their input.
-4. Print the Board after every turn.
-
-
-5. Extend the game to more than 3x3 board i.e, write code for tic-tac-toe on a NxN board.
-'''
