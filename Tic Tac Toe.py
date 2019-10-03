@@ -45,6 +45,7 @@ def winner_check(board, player):
 def tic_tac_toe_comp_player(board):
     '''Main Logic of the Game in Computer vs Player Mode. '''
     turns = 9
+    player_name = input('Enter the Name of the Player: ').strip()
 
     #Visited array to mark as visited
     visited = [x for x in range(turns)]
@@ -77,14 +78,14 @@ def tic_tac_toe_comp_player(board):
         #Check if there is a possibility of winning the game
         if winner_check(board, comp):
             print('Computer Won the Game.')
-            return '=========================== Game Over! ============================'
+            return '=========================== GAME OVER! ============================'
 
         #Break out of the loop when number crosses 9 {That's when we know if there is a Tie}
         if chances >= 9:
             break
         
     
-        print('****************************** Player\'s Turn *********************************')
+        print('****************************** {}\'s Turn *********************************'.format(player_name))
         print(visited)
         ch1 = int(input('Choose a position from the above available list: '))
 
@@ -99,14 +100,14 @@ def tic_tac_toe_comp_player(board):
 
         #Check if there is a possibility of winning the game
         if winner_check(board, player):
-            print('Second Player Won the Game.')
-            return '=========================== Game Over! ============================'
+            print('{} Won the Game.'.format(player_name))
+            return '=========================== GAME OVER! ============================'
             
         #Break out of the loop when the number of turns crosses 9
         if chances >= 9:
             break
         
-    return '+++++++++++++++ Game Draw!!! +++++++++++++++++'
+    return '+++++++++++++++ GAME DRAW!!! +++++++++++++++++'
 
 
 
@@ -114,6 +115,9 @@ def tic_tac_toe_comp_player(board):
 def tic_tac_toe_2_players(board):
     ''' Main Logic of Tic-Tac-Toe Game goes here. Player vs Player Mode. '''
     turns = 9
+    
+    first_player_name = input('Enter 1st player name: ').strip()
+    second_player_name = input('Enter 2nd player name: ').strip()
 
     #Visited array to mark as visited
     visited = [x for x in range(turns)]
@@ -130,7 +134,7 @@ def tic_tac_toe_2_players(board):
     chances = 0
 
     while True:
-        print('------------------------------ First Player Turn --------------------------------')
+        print('------------------------------ {}\'s Turn --------------------------------'.format(first_player_name))
         print(visited)
         ch = int(input('Choose a position from the above available list: ')) if len(visited) > 1 else visited[0]
 
@@ -145,15 +149,15 @@ def tic_tac_toe_2_players(board):
 
         #Check if there is a possibility of winning the game
         if winner_check(board, fp):
-            print('First Player Won the Game.')
-            return '=========================== Game Over! ============================'
+            print('{} Won the Game.'.format(first_player_name))
+            return '=========================== GAME OVER! ============================'
 
         #Break out of the loop when number crosses 9 {That's when we know if there is a Tie}
         if chances >= 9:
             break
         
     
-        print('****************************** Second Player Turn *********************************')
+        print('****************************** {}\'s Player Turn *********************************'.format(second_player_name))
         print(visited)
         ch1 = int(input('Choose a position from the above available list: ')) if len(visited) > 1 else visited[0]
 
@@ -168,14 +172,14 @@ def tic_tac_toe_2_players(board):
 
         #Check if there is a possibility of winning the game
         if winner_check(board, sp):
-            print('Second Player Won the Game.')
-            return '=========================== Game Over! ============================'
+            print('{} Won the Game.'.format(second_player_name))
+            return '=========================== GAME OVER! ============================'
             
         #Break out of the loop when the number of turns crosses 9
         if chances >= 9:
             break
         
-    return '++++++++++++++ Game Draw!!! +++++++++++++++++' 
+    return '++++++++++++++ GAME DRAW!!! +++++++++++++++++' 
         
         
     
