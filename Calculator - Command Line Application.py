@@ -23,7 +23,7 @@ def postfix_evaluation(st, n):
                 val = b - a
 
             operand_stack.append(val)
-        print('OS: {}'.format(operand_stack))
+        #print('OS: {}'.format(operand_stack))
 
     return operand_stack[-1]
 
