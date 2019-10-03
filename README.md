@@ -1,5 +1,5 @@
 # Python - Applications
-This repo consists of difference applications that I made using Python.
+This Repository consists of different applications that I made using Python.
 
 Below are the Command Line Applications:
 1. Bulk File Renaming Application: It is a Command line application to rename the files and subdirectories' names inside a given directory in bulk.
