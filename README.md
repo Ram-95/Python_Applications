@@ -7,7 +7,12 @@ Below are the Command Line Applications:
     b. Takes care of renaming the files with correct extensions.
     c. User can Undo the rename operation.(Only Once)
   
-2. Tic Tac Toe Game:
+2. Tic Tac Toe Game: It is a Basic 2-player game on a 3x3 board size. There are two modes of playing in this:
+    a. Computer vs Player - Where a player can play with the computer.
+    b. Player vs Player - A player plays with another player.
+
 3. Dice Game:
+
 4. Basic Calculator: 
+
 5. Flipkart Price Finder:
