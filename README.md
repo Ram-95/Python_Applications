@@ -17,4 +17,4 @@ There are two modes of playing in this:
 
 4. Basic Calculator: A Command Line Calculator that does the basic arithmetic operations(Addition, Subtraction, Multiplication and Division).
 
-5. Flipkart Price Finder:
+5. Flipkart Price Finder: Given a bunch of links of different items on Flipkart, this script will find the price of those items and print it on the command line. This is used to keep a track of an item's price that a user would like to buy so that he can make a purchase when there is a price drop. 
