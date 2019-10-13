@@ -4,12 +4,7 @@ import bs4 as bs
 import urllib.request
 
 
-def flipkart_price(url):
-
-    import bs4 as bs
-    import urllib.request
-
-    
+def flipkart_price(url):  
     source = urllib.request.urlopen(url).read()
     soup = bs.BeautifulSoup(source, 'lxml')
 
