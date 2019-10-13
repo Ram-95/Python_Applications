@@ -1,7 +1,6 @@
 # Python - Applications
-This Repository consists of different applications that I made using Python.
+This Repository consists of different COMMAND LINE APPLICATIONS that I made using Python.
 
-Below are the Command Line Applications:
 1. Bulk File Renaming Application: It is a Command line application to rename the files and subdirectories' names inside a given directory in bulk.
     a. Given a Directory path, Renames the contents of the Directory with the new name provided by the user.
     b. Takes care of renaming the files with correct extensions.
@@ -11,7 +10,9 @@ Below are the Command Line Applications:
     a. Computer vs Player - Where a player can play with the Computer.
     b. Player vs Player - A player plays with another player.
 
-3. Dice Game:
+3. Dice Game: Simulation of a 6 sided Dice Game. There are two modes of playing in this game:
+    a. Computer vs Player - Where a player can play with the Computer.
+    b. Player vs Player - A player plays with another player.
 
 4. Basic Calculator: 
 
