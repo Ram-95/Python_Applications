@@ -86,8 +86,14 @@ def tic_tac_toe_comp_player(board):
         
     
         print('****************************** {}\'s Turn *********************************'.format(player_name))
-        print(visited)
-        ch1 = int(input('Choose a position from the above available list: '))
+        
+        while True:
+            print(visited)
+            ch1 = int(input('Choose a position from the above available list: '))
+            if ch1 in visited:
+                break
+            else:
+                print('INCORRECT CHOICE!\n')
 
         #Setting the position given by the user with his symbol
         board[d[ch1][0]][d[ch1][1]] = player
@@ -135,8 +141,14 @@ def tic_tac_toe_2_players(board):
 
     while True:
         print('------------------------------ {}\'s Turn --------------------------------'.format(first_player_name))
-        print(visited)
-        ch = int(input('Choose a position from the above available list: ')) if len(visited) > 1 else visited[0]
+        
+        while True:
+            print(visited)
+            ch = int(input('Choose a position from the above available list: ')) if len(visited) > 1 else visited[0]
+            if ch in visited:
+                break
+            else:
+                print('INCORRECT CHOICE!\n')
 
         #Setting the position given by the user with his symbol
         board[d[ch][0]][d[ch][1]] = fp
@@ -158,8 +170,14 @@ def tic_tac_toe_2_players(board):
         
     
         print('****************************** {}\'s Player Turn *********************************'.format(second_player_name))
-        print(visited)
-        ch1 = int(input('Choose a position from the above available list: ')) if len(visited) > 1 else visited[0]
+        
+        while True:
+            print(visited)
+            ch1 = int(input('Choose a position from the above available list: ')) if len(visited) > 1 else visited[0]
+            if ch1 in visited:
+                break
+            else:
+                print('INCORRECT CHOICE!\n')
 
         #Setting the position given by the user with his symbol
         board[d[ch1][0]][d[ch1][1]] = sp
