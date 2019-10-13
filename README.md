@@ -6,7 +6,8 @@ This Repository consists of different COMMAND LINE APPLICATIONS that I made usin
     b. Takes care of renaming the files with correct extensions.
     c. User can Undo the rename operation.(Only Once)
   
-2. Tic Tac Toe Game: It is a Basic 2-player game on a 3x3 board size. There are two modes of playing in this:
+2. Tic_Tac_Toe_Game: It is a 2-player game on a NxN board size. The User should choose a board size before playing. However, if a user chooses the size less than 3 then the board size is taken as 3 by default. 
+There are two modes of playing in this:
     a. Computer vs Player - Where a player can play with the Computer.
     b. Player vs Player - A player plays with another player.
 
@@ -14,6 +15,6 @@ This Repository consists of different COMMAND LINE APPLICATIONS that I made usin
     a. Computer vs Player - Where a player can play with the Computer.
     b. Player vs Player - A player plays with another player.
 
-4. Basic Calculator: 
+4. Basic Calculator: A Command Line Calculator that does the basic arithmetic operations(Addition, Subtraction, Multiplication and Division).
 
 5. Flipkart Price Finder:
