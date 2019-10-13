@@ -10,7 +10,7 @@ This Repository consists of different COMMAND LINE APPLICATIONS that I made usin
     a. Computer vs Player - Where a player can play with the Computer.
     b. Player vs Player - A player plays with another player.
 
-3. Dice Game: Simulation of a 6 sided Dice Game. There are two modes of playing in this game:
+3. Dice Game: Simulation of a Two player Dice Game(6 sided). There are two modes of playing in this game:
     a. Computer vs Player - Where a player can play with the Computer.
     b. Player vs Player - A player plays with another player.
 
