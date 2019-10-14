@@ -1,4 +1,4 @@
-#Tic Tac Toe - Basic 3x3 Board. Players will play in turns.
+#Tic Tac Toe - NxN Board. Players will play in turns.
 
 #Random Module to make Computer randomly choose the position to place.
 from random import *
@@ -73,7 +73,7 @@ def tic_tac_toe_comp_player(board):
     chances = 0
 
     while True:
-        print('------------------------------ Computer\'s Turn --------------------------------')
+        print('-' * string_formatter + ' Computer\'s Turn ' + '-' * string_formatter)
         ch = visited[randrange(0,len(visited))] if len(visited) > 1 else visited[0]
         print('Computer\'s Choice: {}'.format(ch))
         
@@ -89,14 +89,14 @@ def tic_tac_toe_comp_player(board):
         #Check if there is a possibility of winning the game
         if winner_check(board, comp):
             print('Computer Won the Game.')
-            return '=========================== GAME OVER! ============================'
+            return '=' * string_formatter + ' GAME OVER! ' + '=' * string_formatter
 
         #Break out of the loop when number crosses N^2 {That's when we know if there is a Tie}
         if chances >= turns:
             break
         
     
-        print('****************************** {}\'s Turn *********************************'.format(player_name))
+        print('*' * string_formatter + ' ' + player_name + '\'s Turn ' + '*' * string_formatter)
         
         while True:
             print(visited)
@@ -118,13 +118,13 @@ def tic_tac_toe_comp_player(board):
         #Check if there is a possibility of winning the game
         if winner_check(board, player):
             print('{} Won the Game.'.format(player_name))
-            return '=========================== GAME OVER! ============================'
+            return '=' * string_formatter + ' GAME OVER! ' + '=' * string_formatter
             
         #Break out of the loop when the number of turns crosses N^2
         if chances >= turns:
             break
         
-    return '+++++++++++++++++ GAME DRAW!!! +++++++++++++++++'
+    return '+' * string_formatter + ' GAME DRAW!!! ' + '+' * string_formatter 
 
 
 
@@ -149,7 +149,7 @@ def tic_tac_toe_2_players(board):
     chances = 0
 
     while True:
-        print('------------------------------ {}\'s Turn --------------------------------'.format(first_player_name))
+        print('*' * string_formatter + ' ' + first_player_name + '\'s Turn ' + '*' * string_formatter)
         
         while True:
             print(visited)
@@ -171,14 +171,14 @@ def tic_tac_toe_2_players(board):
         #Check if there is a possibility of winning the game
         if winner_check(board, fp):
             print('{} Won the Game.'.format(first_player_name))
-            return '=========================== GAME OVER! ============================'
+            return '=' * string_formatter + ' GAME OVER! ' + '=' * string_formatter
 
         #Break out of the loop when number crosses N^2 {That's when we know if there is a Tie}
         if chances >= turns:
             break
         
     
-        print('****************************** {}\'s Turn *********************************'.format(second_player_name))
+        print('*' * string_formatter + ' ' + second_player_name + '\'s Turn ' + '*' * string_formatter)
         
         while True:
             print(visited)
@@ -200,13 +200,13 @@ def tic_tac_toe_2_players(board):
         #Check if there is a possibility of winning the game
         if winner_check(board, sp):
             print('{} Won the Game.'.format(second_player_name))
-            return '=========================== GAME OVER! ============================'
+            return '=' * string_formatter + ' GAME OVER! ' + '=' * string_formatter
             
         #Break out of the loop when the number of turns crosses N^2
         if chances >= turns:
             break
         
-    return '++++++++++++++++ GAME DRAW!!! +++++++++++++++++' 
+    return '+' * string_formatter + ' GAME DRAW!!! ' + '+' * string_formatter 
         
         
     
@@ -214,6 +214,10 @@ def tic_tac_toe_2_players(board):
 ''' Driver Code for Tic-Tac-Toe Game. '''
 global n
 global d
+
+#Global variable used for string formatting - Used in return statements
+global string_formatter
+string_formatter = 30
 
 #Taking the Board size
 n = int(input('Enter the size of the Board: '))
