@@ -16,10 +16,10 @@ cf_response = requests.get(cf_url)
 cf_html = cf_response.text
 
 cf_soup = bs.BeautifulSoup(cf_html, "html.parser")
-cf_temp = cf_soup.find('div', class_ = 'info')
+cf_rating = cf_soup.find('div', class_= 'info').find('ul').find('li').find('span').text
+cf_position = cf_soup.find('div', class_ = 'user-rank').find('span').text.strip()
 
-cf_position = cf_temp.find_next('span', class_= 'user-gray').text.strip()
-cf_rating = cf_temp.find_next('span', class_= 'user-gray').find_next('span', class_= 'user-gray').text
+#cf_position = cf_temp.find_next('span', class_= 'user-gray').text.strip()
 
 print('Codeforces Rating: {} ({})'.format(cf_rating, cf_position))
 
