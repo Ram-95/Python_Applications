@@ -1,4 +1,5 @@
 #Pomodoro Application
+'''Requires playsound module inorder to play the music. To install --- "pip install playsound". '''
 
 #Module to play audio files
 from playsound import playsound
