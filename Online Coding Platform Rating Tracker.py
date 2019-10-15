@@ -6,6 +6,7 @@ extracts the rating for a given user and prints the rating.
 import bs4 as bs
 import requests
 
+#URLs of Coding Platforms
 cc_url = 'https://www.codechef.com/users/ramm_y2k'
 cf_url = 'http://codeforces.com/profile/iamram'
 he_url = 'https://www.hackerearth.com/users/pagelets/ram13/coding-data/'
@@ -16,10 +17,10 @@ cf_response = requests.get(cf_url)
 cf_html = cf_response.text
 
 cf_soup = bs.BeautifulSoup(cf_html, "html.parser")
+
+#Extracting the rating and the position
 cf_rating = cf_soup.find('div', class_= 'info').find('ul').find('li').find('span').text
 cf_position = cf_soup.find('div', class_ = 'user-rank').find('span').text.strip()
-
-#cf_position = cf_temp.find_next('span', class_= 'user-gray').text.strip()
 
 print('Codeforces Rating: {} ({})'.format(cf_rating, cf_position))
 
@@ -29,8 +30,9 @@ cc_response = requests.get(cc_url)
 cc_html = cc_response.text
 
 cc_soup = bs.BeautifulSoup(cc_html, "lxml")
-cc_rating = cc_soup.find('div', class_= 'rating-number').text
 
+#Extracting the rating and stars
+cc_rating = cc_soup.find('div', class_= 'rating-number').text
 cc_stars = cc_soup.find('div', class_ = 'rating-star').text
 
 print('CodeChef Rating: {} ({})'.format(cc_rating, cc_stars))
@@ -41,6 +43,8 @@ he_response = requests.get(he_url)
 he_html = he_response.text
 
 he_soup = bs.BeautifulSoup(he_html, "lxml")
+
+#Extracting the Rating
 he_rating = he_soup.find('a', class_= 'dark weight-700').text
 
 print('Hacker Earth Rating: {}'.format(he_rating))
