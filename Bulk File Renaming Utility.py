@@ -58,7 +58,7 @@ def bulk_file_rename(path):
     return '***************** File Renaming Completed. *****************'
     
 
-#Path wheere you want to rename the files
+#Path where you want to rename the files
 path = input('Enter Path: ').strip()
 
 print(bulk_file_rename(path))
