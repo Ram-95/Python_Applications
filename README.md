@@ -17,6 +17,6 @@ There are two modes of playing in this:
 
 4. Basic Calculator: A Command Line Calculator that does the basic arithmetic operations(Addition, Subtraction, Multiplication and Division).
 
-5. Flipkart Price Finder: Given a bunch of links of different items on Flipkart, this script will find the price of those items and print it on the command line. This is used to keep a track of an item's price that a user would like to buy so that he can make a purchase when there is a price drop. 
+5. Flipkart Mobile Price Finder: Given a bunch of links of different Mobile Phones on Flipkart, this script will find the price of those items and print it on the command line. This is used to keep a track of an item's price that a user would like to buy so that he can make a purchase when there is a price drop. 
 
 6. Online Coding Platforms Rating Tracker: Given the URLs of users profile in Codeforces, Codechef, Hacker Earth and SPOJ, this script will print their respective ratings and ranks. By running this script, a user can check his all ratings without explicitly navigating to the respective URLs.
