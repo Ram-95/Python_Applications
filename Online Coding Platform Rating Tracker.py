@@ -5,6 +5,11 @@ extracts the rating for a given user and prints the rating.
 '''
 import bs4 as bs
 import requests
+from prettytable import PrettyTable
+import Slack_Push_Notification as Slack
+
+table = PrettyTable(['Coding Platform', 'Rating / Rank'])
+
 
 #URLs of Coding Platforms
 cc_url = 'https://www.codechef.com/users/ramm_y2k'
@@ -16,13 +21,14 @@ spoj_url = 'https://www.spoj.com/users/iam_ram/'
 cf_response = requests.get(cf_url)
 cf_html = cf_response.text
 
-cf_soup = bs.BeautifulSoup(cf_html, "html.parser")
+cf_soup = bs.BeautifulSoup(cf_html, "lxml")
 
 #Extracting the rating and the position
 cf_rating = cf_soup.find('div', class_= 'info').find('ul').find('li').find('span').text
 cf_position = cf_soup.find('div', class_ = 'user-rank').find('span').text.strip()
 
-print('Codeforces Rating: {} ({})'.format(cf_rating, cf_position))
+table.add_row(['Codeforces ', cf_rating + ' (' + cf_position + ')'])
+#print('Codeforces Rating: {} ({})'.format(cf_rating, cf_position))
 
 
 #Codechef Scrapping
@@ -35,7 +41,8 @@ cc_soup = bs.BeautifulSoup(cc_html, "lxml")
 cc_rating = cc_soup.find('div', class_= 'rating-number').text
 cc_stars = cc_soup.find('div', class_ = 'rating-star').text
 
-print('CodeChef Rating: {} ({})'.format(cc_rating, cc_stars))
+table.add_row(['CodeChef ', cc_rating + ' (' + cc_stars.strip() + ')'])
+#print('CodeChef Rating: {} ({})'.format(cc_rating, cc_stars))
 
 
 #HackerEarth Scrapping
@@ -46,8 +53,8 @@ he_soup = bs.BeautifulSoup(he_html, "lxml")
 
 #Extracting the Rating
 he_rating = he_soup.find('a', class_= 'dark weight-700').text
-
-print('Hacker Earth Rating: {}'.format(he_rating))
+table.add_row(['HackerEarth ', he_rating])
+#print('Hacker Earth Rating: {}'.format(he_rating))
 
 
 #SPOJ Scrapping
@@ -60,5 +67,14 @@ temp = spoj_soup.find('div', class_= 'col-md-3')
 #Either of the below will work - The Rank is present in the third <p> tag.
 #spoj_rank = temp.find('p').find_next('p').find_next('p').text.strip()
 spoj_rank = temp.select_one("p:nth-of-type(3)").text.strip()
+table.add_row(['SPOJ', spoj_rank.split(':')[1]])
+#print('SPOJ {}'.format(spoj_rank))
+print(table)
 
-print('SPOJ {}'.format(spoj_rank))
+
+''' Code to send a Slack Push Notification '''
+msg = 'Codeforces Rating: {}\nCodechef Rating: {}\nHackerEarth: {}\nSPOJ: {}'.format(cf_rating + ' ' + cf_position,
+                                                                                     cc_rating + ' ' + '(' + cc_stars + ')' ,
+                                                                                     he_rating,
+                                                                                     spoj_rank)
+Slack.slack_message(msg)
