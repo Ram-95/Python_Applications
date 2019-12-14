@@ -62,11 +62,11 @@ table.add_row(['HackerEarth ', he_rating])
 #SPOJ Scrapping
 spoj_response = requests.get(spoj_url)
 spoj_html = spoj_response.text
-
 spoj_soup = bs.BeautifulSoup(spoj_html, "lxml")
+
 temp = spoj_soup.find('div', class_= 'col-md-3')
 
-#Either of the below will work - The Rank is present in the third <p> tag.
+'''Either of the below will work - The Rank is present in the third <p> tag'''
 #spoj_rank = temp.find('p').find_next('p').find_next('p').text.strip()
 spoj_rank = temp.select_one("p:nth-of-type(3)").text.strip()
 table.add_row(['SPOJ', spoj_rank.split(':')[1]])
@@ -84,9 +84,11 @@ print(table)
 
 
 ''' Code to send a Slack Push Notification '''
-msg = 'Codeforces Rating: {}\nCodechef Rating: {}\nHackerEarth: {}\nSPOJ: {}\nInterviewBit Score: {}'.format(cf_rating + ' ' + cf_position,
+msg = 'Codeforces Rating: {}\nCodechef Rating: {}\nHackerEarth: {}\nSPOJ - {}\nInterviewBit Score: {}'.format(cf_rating + ' ' + cf_position,
                                                                                      cc_rating + ' ' + '(' + cc_stars + ')' ,
                                                                                      he_rating,
                                                                                      spoj_rank,
                                                                                      ib_score)
+
 Slack.slack_message(msg)
+print('\nPush Notification Successfully Sent.\n\n**** Message Preview: **** \n{}'.format(msg))
