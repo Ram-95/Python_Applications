@@ -5,10 +5,11 @@ extracts the rating for a given user and prints the rating.
 '''
 import bs4 as bs
 import requests
+# To print the results in a Tabular Format
 from prettytable import PrettyTable
 import Slack_Push_Notification as Slack
 
-table = PrettyTable(['Coding Platform', 'Rating / Rank'])
+table = PrettyTable(['Coding Platform', 'Rating / Rank / Score'])
 
 
 #URLs of Coding Platforms
@@ -16,6 +17,7 @@ cc_url = 'https://www.codechef.com/users/ramm_y2k'
 cf_url = 'http://codeforces.com/profile/iamram'
 he_url = 'https://www.hackerearth.com/users/pagelets/ram13/coding-data/'
 spoj_url = 'https://www.spoj.com/users/iam_ram/'
+ib_url = 'https://www.interviewbit.com/profile/i.am_ram/'
 
 #Codeforces Scrapping
 cf_response = requests.get(cf_url)
@@ -69,12 +71,22 @@ temp = spoj_soup.find('div', class_= 'col-md-3')
 spoj_rank = temp.select_one("p:nth-of-type(3)").text.strip()
 table.add_row(['SPOJ', spoj_rank.split(':')[1]])
 #print('SPOJ {}'.format(spoj_rank))
+
+#Interview Bit Scraping
+ib_response = requests.get(ib_url)
+ib_response = ib_response.text
+ib_response = bs.BeautifulSoup(ib_response, 'lxml')
+ib_response = ib_response.find('div', class_= 'user-stats').find('div', class_= 'stat pull-left')
+ib_score = ib_response.find('div', class_ = 'txt').text
+table.add_row(['Interview Bit Score', ib_score])
+
 print(table)
 
 
 ''' Code to send a Slack Push Notification '''
-msg = 'Codeforces Rating: {}\nCodechef Rating: {}\nHackerEarth: {}\nSPOJ: {}'.format(cf_rating + ' ' + cf_position,
+msg = 'Codeforces Rating: {}\nCodechef Rating: {}\nHackerEarth: {}\nSPOJ: {}\nInterviewBit Score: {}'.format(cf_rating + ' ' + cf_position,
                                                                                      cc_rating + ' ' + '(' + cc_stars + ')' ,
                                                                                      he_rating,
-                                                                                     spoj_rank)
+                                                                                     spoj_rank,
+                                                                                     ib_score)
 Slack.slack_message(msg)
