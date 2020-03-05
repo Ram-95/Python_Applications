@@ -20,10 +20,10 @@ def col_check(board, player):
 
 
 def diagonal_check(board, player):
-    ''' Checks if all the postions are filled with the player symbol same diagonally. '''
-    #List to store the values for teh first(Left to right diagonal) i.e when i == j
+    ''' Checks if all the postions are filled with the player symbol diagonally. '''
+    #List to store the values for the first(Left to right diagonal) i.e when i == j
     d1 = []
-    #List to store teh values for the second(Right to left diagonal) i.e when i+j == n-1
+    #List to store the values for the second(Right to left diagonal) i.e when i+j == n-1
     d2 = []
     #Traversing the board and updating the diagonal lists.
     for i in range(n):
@@ -220,9 +220,11 @@ global string_formatter
 string_formatter = 30
 
 #Taking the Board size
-n = int(input('Enter the size of the Board: '))
+n = int(input('Enter the size of the Board{3-10}: '))
 if n <= 3:
     n = 3
+elif n >= 10:
+    n = 10
 
 #Creating a dictionary that maps the positions with the indices of the NxN board.
 d = {}
