@@ -11,13 +11,14 @@ def score_details():
     response = requests.get(url)
     html = response.text
     soup = bs.BeautifulSoup(html, 'lxml')
-
+    
+    #Extracting the score and the Batsman details
     score = soup.find('div', class_= 'cb-min-bat-rw')
     info = soup.findAll('div', class_= 'cb-min-itm-rw')
 
-
-
     table = PrettyTable(['Batsman', 'Runs(Balls)', '4s', '6s', 'Strike Rate'])
+    
+    #Extracting the Batsmen Details
     for i in range(2):
         batsman = info[i].select_one("div:nth-of-type(1)").text.strip()
         runs = info[i].select_one("div:nth-of-type(2)").text.strip()
@@ -34,9 +35,9 @@ def score_details():
     print(45*'+ ')
 
 
-'''Driver Code'''
+'''Driver Code - Calls the score function every 30 seconds.'''
 x = 0
 while x < 10:
     score_details()
     x += 1
-    time.sleep(30)
+    time.sleep(25)
