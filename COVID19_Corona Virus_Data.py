@@ -46,5 +46,5 @@ new_cases = t_items[-1].select_one("td:nth-of-type(3)").text.strip()
 print(table)
 print(f'\n{country} {total_cases}\tDeaths: {deaths}')
 msg = f'\n{india[0]} \tCases: {india[1]}({india[2]})\tDeaths: {india[3]}'
-Slack.slack_message(msg)
+Slack.slack_message(msg, __file__)
 print(f'{india[0]} --> Cases: {india[1]}({india[2]})\tDeaths: {india[3]}')
