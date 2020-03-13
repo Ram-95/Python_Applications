@@ -94,6 +94,6 @@ else:
                                                                                          spoj_rank,
                                                                                          ib_score)
 
-    Slack.slack_message(msg)
-    print('\nPush Notification Successfully Sent.\n')
+    Slack.slack_message(msg, __file__)
+    
 #print('\n**** Message Preview: **** \n{}'.format(msg))
