@@ -3,6 +3,7 @@ import requests
 import bs4 as bs
 from prettytable import PrettyTable
 import Slack_Push_Notification as Slack
+import COVID19_India_Information as COVID_Ind
 
 
 table = PrettyTable(['S.No', 'Country', 'Total Cases', 'New Cases', 'Deaths', 'New Deaths', 'Total Recovered', 'Active Cases', 'Serious/Critical'])
@@ -48,3 +49,4 @@ print(f'\n{country} {total_cases}\tDeaths: {deaths}')
 msg = f'\n{india[0]} \tCases: {india[1]}({india[2]})\tDeaths: {india[3]}'
 Slack.slack_message(msg, __file__)
 print(f'{india[0]} --> Cases: {india[1]}({india[2]})\tDeaths: {india[3]}')
+
