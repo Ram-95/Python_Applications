@@ -51,7 +51,7 @@ Slack.slack_message(msg, __file__)
 print(f'{india[0]} --> Cases: {india[1]}({india[2]})\tDeaths: {india[3]}')
 
 
-ch = input('\n\nDo you want to know India\'s COVID19 Information ?(y/n): \n')
+ch = input('\n\nDo you want to know India\'s COVID-19 State wise Information ?(y/n): \n')
 if ch.lower() == 'y':
     import COVID19_India_Information as COVID_Ind
 
