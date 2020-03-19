@@ -8,7 +8,7 @@ from prettytable import PrettyTable
 
 
 filename = 'COVID-19_India_Data.csv'
-today = date.today().strftime("%B %d, %Y")
+today = date.today().strftime("%d-%b-%y")
 
 
 url = "http://www.mohfw.gov.in/"

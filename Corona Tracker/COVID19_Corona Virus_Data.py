@@ -9,7 +9,7 @@ import Slack_Push_Notification as Slack
 
 filename = 'COVID-19_Global_Data.csv'
 
-today = date.today().strftime("%B %d, %Y")
+today = date.today().strftime("%d-%b-%y")
 
 
 table = PrettyTable(['S.No', 'Country', 'Total Cases', 'New Cases', 'Deaths', 'New Deaths', 'Total Recovered', 'Active Cases', 'Serious/Critical'])
@@ -81,7 +81,7 @@ else:
     if data[-1][0] == today:
         data[-1][1] = str(max(int(data[-1][1].replace(',', '')), int(total_cases.replace(',', ''))))
         data[-1][2] = str(max(int(data[-1][2].replace(',', '')), int(deaths.replace(',', ''))))
-
+        print(f'{data}')
         with open(filename, 'w') as f:
             wr = csv.writer(f, delimiter= ',', lineterminator='\n')
             for item in data:
