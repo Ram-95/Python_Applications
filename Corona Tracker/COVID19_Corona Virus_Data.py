@@ -1,9 +1,15 @@
 #WHO Data
+import csv
 import requests
 import bs4 as bs
+from datetime import date
 from prettytable import PrettyTable
+import os
 import Slack_Push_Notification as Slack
 
+filename = 'COVID-19_Global_Data.csv'
+
+today = date.today().strftime("%B %d, %Y")
 
 
 table = PrettyTable(['S.No', 'Country', 'Total Cases', 'New Cases', 'Deaths', 'New Deaths', 'Total Recovered', 'Active Cases', 'Serious/Critical'])
@@ -14,7 +20,7 @@ response = requests.get(url)
 html = response.text
 soup = bs.BeautifulSoup(html, 'lxml')
 
-t_items = soup.find('table', id="main_table_countries").findAll('tr')
+t_items = soup.find('table', id="main_table_countries_today").findAll('tr')
 sno = 0
 india = []
 
@@ -46,6 +52,42 @@ new_cases = t_items[-1].select_one("td:nth-of-type(3)").text.strip()
 
 print(table)
 print(f'\n{country} {total_cases}\tDeaths: {deaths}')
+
+
+#Creating the CSV File if not already present
+files = os.listdir()
+
+if filename not in files:
+    with open(filename, 'w') as f:
+        writer = csv.writer(f, delimiter=',', lineterminator='\n')
+        writer.writerow(['DATE', 'TOTAL_CASES', 'DEATHS'])
+        print(f'\nCSV File Created Successfully.\n')
+
+
+
+#Reading the CSV File
+with open(filename, 'r') as f:
+    reader = csv.reader(f, delimiter=',', lineterminator='\n')
+    data = list(reader)
+    print(f'{data}')
+    
+
+if data[-1][0] == 'DATE':
+    with open(filename, 'a') as f:
+        writer = csv.writer(f, delimiter = ',', lineterminator = '\n')
+        writer.writerow([today, int(total_cases.replace(',', '')), int(deaths.replace(',', ''))])
+        
+else:
+    if data[-1][0] == today:
+        data[-1][1] = str(max(int(data[-1][1].replace(',', '')), int(total_cases.replace(',', ''))))
+        data[-1][2] = str(max(int(data[-1][2].replace(',', '')), int(deaths.replace(',', ''))))
+
+        with open(filename, 'w') as f:
+            wr = csv.writer(f, delimiter= ',', lineterminator='\n')
+            for item in data:
+                wr.writerow(item)
+    
+
 msg = f'{country} {total_cases}\tDeaths: {deaths}\n\n{india[0]}\tCases: {india[1]}({india[2]})\tDeaths: {india[3]}'
 Slack.slack_message(msg, __file__)
 print(f'{india[0]} --> Cases: {india[1]}({india[2]})\tDeaths: {india[3]}')
