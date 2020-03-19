@@ -1,4 +1,4 @@
-# COVID-19 Tracker
+# COVID-19 Tracker [World & India]
 
 ### This code tracks the spread of Novel Corona Virus and shows the detailed information of World and India.
 
