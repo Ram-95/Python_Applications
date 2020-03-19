@@ -1,6 +1,6 @@
 # COVID-19 Tracker [World & India]
 
-### This code tracks the spread of Novel Corona Virus and shows the detailed information of World and India.
+### This code tracks the spread of Novel Corona Virus (COVID-19) and shows the detailed across World and India.
 
 This code also creates Two CSV files to store the day-to-day data.
   * COVID-19_Global_Data.csv - Stores the day-to-day data across the World
