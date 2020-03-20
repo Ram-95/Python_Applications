@@ -6,7 +6,7 @@ This code also creates Two CSV files to store the day-to-day data.
   * COVID-19_Global_Data.csv - Stores the day-to-day data across the World
   * COVID-19_India_Data.csv - Stores the day-to-day data across India
 
-The above files are then used for Data Analysis - See COVID-19_Data_Analysis.ipynb.
+The above files are then used for Data Analysis - See [COVID-19_Data_Analysis.ipynb](https://github.com/Ram-95/Python_Applications/blob/master/Corona%20Tracker/COVID-19_Data_Analysis.ipynb)
 
 #### Below is the snapshot of the data showing the detailed information in India.
 
