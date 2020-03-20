@@ -69,7 +69,7 @@ if filename not in files:
 with open(filename, 'r') as f:
     reader = csv.reader(f, delimiter=',', lineterminator='\n')
     data = list(reader)
-    print(f'{data}')
+    #print(f'{data}')
     
 
 if data[-1][0] == 'DATE':
@@ -81,11 +81,15 @@ else:
     if data[-1][0] == today:
         data[-1][1] = str(max(int(data[-1][1].replace(',', '')), int(total_cases.replace(',', ''))))
         data[-1][2] = str(max(int(data[-1][2].replace(',', '')), int(deaths.replace(',', ''))))
-        print(f'{data}')
+        #print(f'{data}')
         with open(filename, 'w') as f:
             wr = csv.writer(f, delimiter= ',', lineterminator='\n')
             for item in data:
                 wr.writerow(item)
+    else:
+        with open(filename, 'a') as f:
+            writer = csv.writer(f, delimiter = ',', lineterminator = '\n')
+            writer.writerow([today, int(total_cases.replace(',', '')), int(deaths.replace(',', ''))])
     
 
 msg = f'{country} {total_cases}\tDeaths: {deaths}\n\n{india[0]}\tCases: {india[1]}({india[2]})\tDeaths: {india[3]}'

@@ -85,3 +85,7 @@ else:
             wr = csv.writer(f, delimiter= ',', lineterminator='\n')
             for item in data:
                 wr.writerow(item)
+    else:
+        with open(filename, 'a') as f:
+            writer = csv.writer(f, delimiter = ',', lineterminator = '\n')
+            writer.writerow([today, total_cases, deaths])
