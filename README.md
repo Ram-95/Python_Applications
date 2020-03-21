@@ -24,5 +24,5 @@ This Repository consists of different **COMMAND LINE APPLICATIONS** that I devel
     > - This is used to keep a track of an item's price that a user would like to buy so that he can make a purchase when there is a price drop.
 
 -	### Online Coding Platforms Rating Tracker: 
-    > - Given the URLs of users profile in Codeforces, Codechef, Hacker Earth, SPOJ and Interview Bit, this script will print their respective ratings and ranks. 
+    > - Given the URLs of users profile in Codeforces, Codechef, Hacker Earth, SPOJ and Interview Bit, this script will print their ratings and ranks. 
     > - By running this script, a user can check his all ratings without explicitly navigating to the respective URLs.
