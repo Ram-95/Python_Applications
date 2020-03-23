@@ -58,7 +58,7 @@ summ = []
 for j in t_items[-1].findAll('td'):
     summ.append(j.text.strip())
 
-total_cases = int(summ[1].replace('#', '')) + int(summ[2].replace('#', ''))
+total_cases = int(summ[1].replace('*', '')) + int(summ[2].replace('*', ''))
 summ.append(total_cases)
 
 summ_table.add_row(summ)
