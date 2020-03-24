@@ -1,24 +1,25 @@
 S.NO,STATE/UT,INDIAN CASES,FOREIGN CASES,DISCHARGED,DEAD,TOTAL CASES
-1,Andhra Pradesh,7,0,0,0,7
-2,Bihar,2,0,0,1,2
+1,Andhra Pradesh,8,0,0,0,8
+2,Bihar,3,0,0,1,3
 3,Chhattisgarh,1,0,0,0,1
-4,Delhi,28,1,5,1,29
-5,Gujarat,29,0,0,1,29
-6,Haryana,12,14,11,0,26
+4,Delhi,29,1,6,2,30
+5,Gujarat,32,1,0,1,33
+6,Haryana,14,14,11,0,28
 7,Himachal Pradesh,3,0,0,1,3
-8,Karnataka,33,0,2,1,33
-9,Kerala,60,7,3,0,67
-10,Madhya Pradesh,6,0,0,0,6
-11,Maharashtra,71,3,0,2,74
-12,Odisha,2,0,0,0,2
-13,Puducherry,1,0,0,0,1
-14,Punjab,21,0,0,1,21
-15,Rajasthan,26,2,3,0,28
-16,Tamil Nadu,7,2,1,0,9
-17,Telengana,22,10,1,0,32
-18,Chandigarh,6,0,0,0,6
-19,Jammu and Kashmir,4,0,0,0,4
-20,Ladakh,13,0,0,0,13
-21,Uttar Pradesh,30,1,9,0,31
-22,Uttarakhand,3,0,0,0,3
-23,West Bengal,7,0,0,1,7
+8,Karnataka,37,0,3,1,37
+9,Kerala,87,8,4,0,95
+10,Madhya Pradesh,7,0,0,0,7
+11,Maharashtra,86,3,0,2,89
+12,Manipur,1,0,0,0,1
+13,Odisha,2,0,0,0,2
+14,Puducherry,1,0,0,0,1
+15,Punjab,29,0,0,1,29
+16,Rajasthan,30,2,3,0,32
+17,Tamil Nadu,13,2,1,0,15
+18,Telengana,25,10,1,0,35
+19,Chandigarh,7,0,0,0,7
+20,Jammu and Kashmir,4,0,0,0,4
+21,Ladakh,13,0,0,0,13
+22,Uttar Pradesh,32,1,11,0,33
+23,Uttarakhand,3,1,0,0,4
+24,West Bengal,9,0,0,1,9
