@@ -22,12 +22,12 @@ x = soup.find('div', class_= 'content newtab').find('p').text.strip()
 
 
 t_items = soup.find('div', class_= 'content newtab').find('table').find('tbody').findAll('tr')
-head = ['S.No', 'State/UT', 'Indian Cases', 'Foreign Cases', 'Discharged', 'Dead', 'Total Cases']
+head = ['S.No', 'State/UT', 'Indian Cases', 'Foreign Cases', 'Discharged', 'Dead', 'Total Active Cases', 'Total Cases']
 
 
 #Creating a Table
 ind_table = PrettyTable(head)
-summ_table = PrettyTable(['Total', 'Indian Cases', 'Foreign Cases', 'Discharged', 'Dead', 'Total Cases'])
+summ_table = PrettyTable(['Total', 'Indian Cases', 'Foreign Cases', 'Discharged', 'Dead', 'Total Active Cases', 'Total Cases'])
 
 
 b = soup.findAll('div', class_='iblock_text')
@@ -39,11 +39,12 @@ with open(state_filename, 'w') as f:
     writer.writerow([x.upper() for x in head])
 
 
-for i in t_items[:len(t_items)-1]:
+for i in t_items[:len(t_items)-2]:
     state_data = []
     for k in i.findAll('td'):
         state_data.append(k.text.strip())
     state_data.append(int(state_data[2]) + int(state_data[3]))
+    state_data.append(int(state_data[2]) + int(state_data[3]) + int(state_data[4]) + int(state_data[5]))
     ind_table.add_row(state_data)
 
     with open(state_filename, 'a') as f:
@@ -55,10 +56,13 @@ print('\n' + '*'*20 + ' INDIA - STATE WISE INFORMATION ' + x + ' ' + '*'*20 + '\
 print(f'{ind_table}')
 
 summ = []
-for j in t_items[-1].findAll('td'):
+for j in t_items[-2].findAll('td'):
     summ.append(j.text.strip())
 
-total_cases = int(summ[1].replace('*', '')) + int(summ[2].replace('*', ''))
+total_active_cases = int(summ[1].replace('#', '')) + int(summ[2].replace('#', ''))
+total_cases = total_active_cases + int(summ[3]) + int(summ[4])
+
+summ.append(total_active_cases)
 summ.append(total_cases)
 
 summ_table.add_row(summ)
