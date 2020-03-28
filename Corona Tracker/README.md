@@ -11,4 +11,4 @@ The above files are then used for Data Analysis - See [COVID-19_Data_Analysis.ip
 
 #### Below is the snapshot of the data showing the detailed information in India (as on March 25th, 2020).
 
-> ![India-result](https://raw.githubusercontent.com/Ram-95/Python_Applications/master/Corona%20Tracker/Indian_data.JPG)
+> ![India-result](https://raw.githubusercontent.com/Ram-95/Python_Applications/master/Corona%20Tracker/india_data.JPG)
