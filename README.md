@@ -1,4 +1,6 @@
-# Python - Applications
+# Python - Applications 
+[![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
+
 This Repository consists of different **COMMAND LINE APPLICATIONS** that I developed using Python 3.
 
 -	### Dice Game: 
