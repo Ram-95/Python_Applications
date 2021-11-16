@@ -20,9 +20,14 @@ chance = 0
 (total, total1) = (0,0)
 
 max_score = 36
+DECORATE_COUNT = 45
 
 # Iterate until a player is won
 while(1):
+    print(f'\nScores: ')
+    print('='*DECORATE_COUNT)
+    print(f'{player1}: {total}\n{player2}: {total1}')
+    print('='*DECORATE_COUNT)
     #1st player chance
     while(chance == 0):     
         print('\n')
@@ -65,5 +70,5 @@ while(1):
 
         if total1 >= max_score:
             print('\n\n******************* GAME OVER ********************\n')
-            print('{}(Player1) Won the Game in {} tries. Congratulations!!!'.format(player2, tries1))
+            print('{}(Player1) won the Game in {} tries. Congratulations!!!\n'.format(player2, tries1))
             sys.exit()
